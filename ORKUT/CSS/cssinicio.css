@@ -1,0 +1,77 @@
+.cor{
+ background-color: rgb(245, 203, 245);
+}
+h1{
+    color: white;
+    margin-left: 5%;
+    padding-top: 1%;
+    font-size: 300%;
+
+}
+form{
+    background-color: deeppink;
+    height: 80px;
+    color: white;
+}
+.icon{
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+}
+.posi{
+    margin-left: 90%;
+    margin-top: -41px;
+}
+.perfil{
+    background-color: white;
+    margin-left: 2%;
+    height: 450px;
+    width: 25%;
+    margin-top: 1%;
+    border-radius: 10px 60px 10px 10px;
+}
+.logo{
+    width: 80%;
+    padding-left: 20%;
+}
+.nome{
+    color: deeppink; 
+    font-weight: bold;
+    margin-left: 35%;
+    font-size: 20px;
+}
+.bater-papo{
+    width: 7%;
+   margin-left: 35%;
+}
+.scraps{
+    margin-left: 50%;
+    margin-top: -25px;
+    color: blue;
+
+}
+.quadrado1{
+    height: 490px;
+    width: 38%;
+    background-color: white;
+    margin-left: 30%;
+    margin-top: -430px;
+    border-radius: 5px;
+}
+.quadrado2{
+    height: 245px;
+    width: 25%;
+    background-color: white;
+    margin-left: 70%;
+    margin-top: -490px;
+    border-radius: 5px;
+    margin-bottom: 1%;
+}
+.quadrado3{
+    height: 230px;
+    width: 25%;
+    background-color: white;
+    margin-left: 70%;
+    border-radius: 5px;
+}
