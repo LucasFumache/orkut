@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <link rel="stylesheet" href="./css/cssinicio.css">
     <link rel="icon" href="imagem/icon-orkut (1).png"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAGINA INICIAL ORKUT</title>
+    <title>Document</title>
 </head>
 <body class="cor">
     <div class="dropdown">
-        <form>
+        <form class="cabe">
             <div> 
                 <h1 onclick="window.location.href='orkut.html'">ORKUT</h1> 
                 <div class="posi">
@@ -23,8 +27,8 @@
         </form>
       </div>
       <div class="perfil">
-        <img class="logo" src="imagem/me.png">
-        <p class="nome">Meu nome</p>
+        <img class="logo" id="imagem" src="imagem/me.png">
+        <p class="nome" id="nome">Meu nome</p>
         <img class="bater-papo" src="imagem/bater-papo.png">
         <p class="scraps">Scraps</p>
         <img class="bater-papo" src="imagem/ferramenta-lapis.png">
@@ -34,16 +38,36 @@
         <img class="bater-papo" src="imagem/documentos-google.png">
         <p class="scraps">Depoimentos</p>
       </div>
-      <div class="quadrado1">
-    
-      </div>
-      <div class="quadrado2">
-    
-      </div>
-      <div class="quadrado3">
-    
-      </div>
 
-        
+      <div class="quadrado1" id="endereço">
+      <h1></h1>
+      </div>
+      <div class="quadrado2" id="dtnasci">
+    
+      </div>
+      <div class="quadrado3" id="genero">
+      
+      </div>
+      <script>
+        $(document).ready(function() {
+            // Extrair o nome de usuário da URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var userid = urlParams.get('userid');
+            //Enviando dados para o PHP
+            $.post( "profile.php",{userid : userid})
+            .done(function( response ) {
+                // Parse da resposta JSON obtida do PHP
+                var data = JSON.parse(response);
+                // Preencher os espaços reservados com os dados do perfil
+                $('#imagem').attr('src', data.foto);
+                $('#nome').text(data.nome);
+                $('#endereço').text("Endereco: "+data.endereco);
+                $('#dtnasci').text("Dt.Nasc: "+data.dtnasci);
+                $('#genero').text("Genero: "+data.genero);
+                
+            });        
+        });
+
+    </script>
 </body>
 </html>

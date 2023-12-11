@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagem/icon-orkut (1).png" type="Icon orkut">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/login/login.css">
+    <link rel="stylesheet" href="styles/login/login-responsive.css">
+    <link rel="stylesheet" href="./css/orkut.css">
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+    <title>Login</title>
+</head>
+<body>
+   <img class="logo" src="imagem/orkut-logo.png">
+   
+   <div class="principal">
+    <div class="container">
+        <br>
+        <p>Acesse o <span style="color: deeppink;">orkut</span> com a sua conta <span style="color: blue;">G</span><span style="color: deeppink;">o</span><span style="color: yellow;">o</span><span style="color: blue;">g</span><span style="color: green;">l</span><span style="color: deeppink;">e</span>!</p>
+        <div class="fields">
+<!--        <form action="login.php" method="post"> -->
+            <div class="fields__title">
+        <input class="texto" placeholder="E-mail ou número de celular" name="login" id="login" ><br><br>
+        <input class="texto" type="password" placeholder="Senha" name="senha" id="senha"><br><br>
+        <input type="checkbox" class="caixa">
+        <small class="lembre">Lembrar sempre do meu acesso</small><br><br>
+            </div>
+            <div class="fields__buttons">
+                <button id="btnlogin" class="orkut-button-bg" onclick="login()">Entrar</button>
+                 <small  class="esqueci">Esqueci senha ou e-mail</small><br><br>
+                
+            </div>
+            <br>
+            <br>
+ <!--           </form> -->
+              <p class="naotemconta">Não tem conta?<span style="color: deeppink;"> Criar agora</span></p>
+              </div>
+               </div>
+                </div>
+                <script> 
+                function login(){
+                    //recebendo os dados do formulario
+                    var login = $("#login").val();
+                    var senha = $("#senha").val();
+                    //Enviando dados para o PHP
+                    $.post("login.php",{login : login, senha: senha}).done(function(data) {
+                        //alert(data);
+                        if(data == 0){
+                            alert("Usuario ou senha inválido");
+                            window.location.href="https://projetosenai508022l.000webhostapp.com/orkut/index.html";
+                        } else {
+                        
+                             window.location.href="https://projetosenai508022l.000webhostapp.com/orkut/orkutinicial.html?userid="+data;
+                             
+                        }
+                    });
+                }
+                </script>
+                </body>
+                </html>
